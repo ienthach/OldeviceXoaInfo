@@ -1,3 +1,11 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Jan 31, 2021 at 10:35 PM
+-- Server version: 10.2.36-MariaDB-log-cll-lve
+-- PHP Version: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -27,7 +35,6 @@ CREATE TABLE `oldDeviceAccount` (
   `hash` varchar(50) DEFAULT NULL,
   `dateCreate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 -- --------------------------------------------------------
 
@@ -116,9 +123,9 @@ ALTER TABLE `PUBoldDeviceBundles`
 --
 ALTER TABLE `PUBoldDeviceCountryDeploy`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `country` (`country`),
   ADD KEY `minRequest` (`minRequest`),
-  ADD KEY `ownerID` (`ownerID`);
+  ADD KEY `ownerID` (`ownerID`),
+  ADD KEY `country` (`country`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -128,7 +135,7 @@ ALTER TABLE `PUBoldDeviceCountryDeploy`
 -- AUTO_INCREMENT for table `oldDeviceAccount`
 --
 ALTER TABLE `oldDeviceAccount`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `PUBoldDevice`
